@@ -1,2 +1,4 @@
-cpp_template
-============
+gtest_cmake_template
+====================
+
+* google test
