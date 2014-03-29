@@ -3,7 +3,7 @@ gtest_cmake_template
 
 How to make use this template?
 ----------------------------------------
-See example project in under `demo/sample01`, which is example of Chap 01 from Test Driven Development By Kent Beck.
+See example project in under `demo/sample01`, which is example of Test Driven Development chap01 By Kent Beck.
 
 
 How to build?
