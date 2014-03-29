@@ -6,8 +6,8 @@ set(PROJECT_NAME_STR template)
 project(${PROJECT_NAME_STR} C CXX)
 # If your compiler is G++,
 if(CMAKE_COMPILER_IS_GNUCXX)
-# thiese option is added to compiler.
-	add_definitions(-Wall -ansi -Wno-deprecated -pthread)
+  # These options are added to compiler.
+  add_definitions(-Wall -ansi -Wno-deprecated -pthread)
 endif()
 
 #-------------------
@@ -52,23 +52,23 @@ add_executable(test/${PROJECT_TEST_NAME} ${TEST_SRC_FILES} ${PROJECT_SOURCE_DIR}
 add_dependencies(test/${PROJECT_TEST_NAME} googletest)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
-	target_link_libraries(test/${PROJECT_TEST_NAME} pthread)
-	target_link_libraries(test/${PROJECT_TEST_NAME}
-		${GTEST_LIBS_DIR}/libgtest.a
-		${GTEST_LIBS_DIR}/libgtest_main.a
-	)
+  target_link_libraries(test/${PROJECT_TEST_NAME} pthread)
+  target_link_libraries(test/${PROJECT_TEST_NAME}
+    ${GTEST_LIBS_DIR}/libgtest.a
+    ${GTEST_LIBS_DIR}/libgtest_main.a
+    )
 else()
 
-#target_link_libraries(target library name)
-# Set library to link
-	target_link_libraries(test/${PROJECT_TEST_NAME}
-	       debug ${GTEST_LIBS_DIR}/DebugLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest${CMAKE_FIND_LIBRARY_SUFFIXES}
-	       optimized ${GTEST_LIBS_DIR}/ReleaseLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest${CMAKE_FIND_LIBRARY_SUFFIXES}
-	)
-	target_link_libraries(test/${PROJECT_TEST_NAME}
-	       debug ${GTEST_LIBS_DIR}/DebugLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main${CMAKE_FIND_LIBRARY_SUFFIXES}
-	       optimized ${GTEST_LIBS_DIR}/ReleaseLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main${CMAKE_FIND_LIBRARY_SUFFIXES}
-	)
+  #target_link_libraries(target library name)
+  # Set library to link
+  target_link_libraries(test/${PROJECT_TEST_NAME}
+    debug ${GTEST_LIBS_DIR}/DebugLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest${CMAKE_FIND_LIBRARY_SUFFIXES}
+    optimized ${GTEST_LIBS_DIR}/ReleaseLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest${CMAKE_FIND_LIBRARY_SUFFIXES}
+    )
+  target_link_libraries(test/${PROJECT_TEST_NAME}
+    debug ${GTEST_LIBS_DIR}/DebugLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main${CMAKE_FIND_LIBRARY_SUFFIXES}
+    optimized ${GTEST_LIBS_DIR}/ReleaseLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main${CMAKE_FIND_LIBRARY_SUFFIXES}
+    )
 endif()
 
 # add_test(TEST_NAME arg1 arg2 ...)
