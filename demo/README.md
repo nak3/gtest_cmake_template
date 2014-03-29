@@ -1,0 +1,1 @@
+*NOTE* This directory is just examples and misc files, not necessary for your project.
